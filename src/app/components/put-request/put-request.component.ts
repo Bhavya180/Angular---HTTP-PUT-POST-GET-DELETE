@@ -1,15 +1,19 @@
 import { Component, OnInit } from "@angular/core";
 import { HttpClient } from '@angular/common/http';
+import { AppService } from "../../app.service";
+import { Console } from "console";
 
 @Component({ selector: 'put-request', templateUrl: 'put-request.component.html' })
 export class PutRequestComponent implements OnInit {
     postId: any;
 
-    constructor(private http: HttpClient) { }
+    constructor(private service: AppService) { }
 
     ngOnInit() {
+        console.log('heres')
         const body = { title: 'Angular PUT Request Example' };
-        this.http.put<any>('https://jsonplaceholder.typicode.com/posts/1', body)
-            .subscribe(data => this.postId = data.id);
+        const authToken = 'Bhav';
+        this.service.updatePost(body, authToken)
+            .subscribe(data  => this.postId = data.id);
     }
 }

@@ -19,6 +19,8 @@ import { GetRequestHeadersComponent } from './components/get-request-headers/get
 import { DeleteRequestComponent } from './components/delete-request/delete-request.component';
 import { DeleteRequestHeadersComponent } from './components/delete-request-headers/delete-request-headers.component';
 import { DeleteRequestErrorHandlingComponent } from './components/delete-request-error-handling/delete-request-error-handling.component';
+import { AppService } from './app.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -42,10 +44,12 @@ import { DeleteRequestErrorHandlingComponent } from './components/delete-request
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [
-    provideClientHydration()
+    provideClientHydration(),
+    AppService
   ],
   bootstrap: [AppComponent]
 })
