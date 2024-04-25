@@ -4,3 +4,8 @@
         Post Id: {{postId}}
     </div>
 </div>
+<input type="text" [(ngModel)]="inputTitle" placeholder="Enter Title"> <!-- Input field with two-way data binding -->
+
+<button (click)="updatePost()">Update Post</button>
+
+<h1>Title: {{ inputTitle }}</h1>
